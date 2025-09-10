@@ -1,11 +1,30 @@
-// Theme Toggle Functionality with Persistent Theme Across Pages
-const themeToggle = document.getElementById('theme-toggle');
+// Theme Toggle Functionality with Firefox Compatibility
+let themeToggle = null;
 const html = document.documentElement;
+
+// Function to safely access localStorage
+function getStoredTheme() {
+    try {
+        return localStorage.getItem('theme') || 'light';
+    } catch (e) {
+        console.warn('localStorage not available:', e);
+        return 'light';
+    }
+}
+
+// Function to safely set localStorage
+function setStoredTheme(theme) {
+    try {
+        localStorage.setItem('theme', theme);
+    } catch (e) {
+        console.warn('Could not save theme to localStorage:', e);
+    }
+}
 
 // Function to apply theme from localStorage
 function applySavedTheme() {
     // Retrieve saved theme from localStorage, default to 'light' if none exists
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    const savedTheme = getStoredTheme();
     console.log('Applying saved theme:', savedTheme);
 
     // Apply the theme to the HTML element
@@ -20,7 +39,13 @@ function applySavedTheme() {
 // Function to update button text based on current theme
 function updateButtonText() {
     const currentTheme = html.getAttribute('data-theme');
-    const buttonText = currentTheme === 'light' ? 'Found Mode' : 'Lost Mode';
+    const buttonText = currentTheme === 'light' ? 'Found' : 'Lost';
+
+    // Find the button element if not already found
+    if (!themeToggle) {
+        themeToggle = document.getElementById('theme-toggle');
+    }
+
     if (themeToggle) {
         themeToggle.textContent = buttonText;
     }
@@ -38,7 +63,7 @@ function handleThemeToggle() {
     html.setAttribute('data-theme', newTheme);
 
     // Save the new theme to localStorage for persistence across pages
-    localStorage.setItem('theme', newTheme);
+    setStoredTheme(newTheme);
 
     // Update button text to reflect the change
     updateButtonText();
@@ -46,16 +71,40 @@ function handleThemeToggle() {
     console.log('Theme toggled to:', newTheme);
 }
 
-// Apply saved theme when the page loads
-document.addEventListener('DOMContentLoaded', function() {
-    // Apply the saved theme and update UI
-    applySavedTheme();
+// Function to initialize theme functionality
+function initializeThemeToggle() {
+    // Find the theme toggle button
+    themeToggle = document.getElementById('theme-toggle');
 
-    // Add click event listener to the theme toggle button
     if (themeToggle) {
+        // Apply saved theme and update UI
+        applySavedTheme();
+
+        // Add click event listener to the theme toggle button
         themeToggle.addEventListener('click', handleThemeToggle);
+
+        console.log('Theme toggle initialized successfully');
+    } else {
+        console.warn('Theme toggle button not found, retrying...');
+        // Retry after a short delay if button not found
+        setTimeout(initializeThemeToggle, 100);
     }
-});
+}
+
+// Initialize when DOM is ready - multiple event listeners for cross-browser compatibility
+function initializeOnDomReady() {
+    if (document.readyState === 'loading') {
+        // DOM not ready yet, wait for events
+        document.addEventListener('DOMContentLoaded', initializeThemeToggle);
+        window.addEventListener('load', initializeThemeToggle);
+    } else {
+        // DOM already ready
+        initializeThemeToggle();
+    }
+}
+
+// Start initialization
+initializeOnDomReady();
 
 // Removed updateButtonText as button now has no text
 
