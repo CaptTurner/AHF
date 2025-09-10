@@ -1,4 +1,4 @@
-// Theme Toggle Functionality with Firefox Compatibility
+// Theme Toggle Functionality with Firefox Compatibility and No Flash
 let themeToggle = null;
 const html = document.documentElement;
 
@@ -11,6 +11,15 @@ function getStoredTheme() {
         return 'light';
     }
 }
+
+// Apply theme immediately to prevent flash of wrong theme
+(function applyThemeImmediately() {
+    const savedTheme = getStoredTheme();
+    if (savedTheme === 'dark') {
+        html.setAttribute('data-theme', 'dark');
+    }
+    // For light theme, we don't need to set anything as it's the default
+})();
 
 // Function to safely set localStorage
 function setStoredTheme(theme) {
@@ -39,7 +48,7 @@ function applySavedTheme() {
 // Function to update button text based on current theme
 function updateButtonText() {
     const currentTheme = html.getAttribute('data-theme');
-    const buttonText = currentTheme === 'light' ? 'Found' : 'Lost';
+    const buttonText = currentTheme === 'light' ? 'Found Mode' : 'Lost Mode';
 
     // Find the button element if not already found
     if (!themeToggle) {
@@ -82,6 +91,9 @@ function initializeThemeToggle() {
 
         // Add click event listener to the theme toggle button
         themeToggle.addEventListener('click', handleThemeToggle);
+
+        // Mark theme as loaded to re-enable CSS transitions
+        html.setAttribute('data-theme-loaded', 'true');
 
         console.log('Theme toggle initialized successfully');
     } else {
