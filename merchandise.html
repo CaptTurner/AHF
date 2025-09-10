@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merchandise - At His Feet</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="wwwroot/images/band/at-his-feet-band-logo.jpg" type="image/jpg">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="wwwroot/images/band/at-his-feet-band-logo.jpg" alt="At His Feet Band Logo">
+                <h1>At His Feet</h1>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="merchandise.html">Merchandise</a></li>
+                <li><a href="donate.html">Donate</a></li>
+                <li><a href="media.html">Media Gallery</a></li>
+            </ul>
+            <button id="theme-toggle">Lost vs Found</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="merch-hero">
+            <h2>Official Merchandise</h2>
+            <p>Show your support for At His Feet with our collection of music, apparel, and accessories.</p>
+        </section>
+
+        <section class="merchandise-shop">
+            <h3>Shop Our Collection</h3>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="wwwroot/images/band/at-his-feet-band-logo.jpg" alt="At His Feet CD">
+                    <h4>Latest Album CD</h4>
+                    <p>Physical copy of our latest worship collection.</p>
+                    <p class="price">$15.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="wwwroot/images/band/at-his-feet-band-pic.jpg" alt="T-Shirt">
+                    <h4>Worship T-Shirt</h4>
+                    <p>Cotton tee with band logo and Psalm 99:5.</p>
+                    <p class="price">$19.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="wwwroot/images/band/at-his-feet-band-logo.jpg" alt="Hoodie">
+                    <h4>At His Feet Hoodie</h4>
+                    <p>Comfortable hoodie for all seasons.</p>
+                    <p class="price">$39.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="wwwroot/images/band/at-his-feet-band-pic.jpg" alt="Mug">
+                    <h4>Inspiration Mug</h4>
+                    <p>Ceramic mug with uplifting Christian quotes.</p>
+                    <p class="price">$12.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="wwwroot/images/band/at-his-feet-band-logo.jpg" alt="Sticker Pack">
+                    <h4>Sticker Pack</h4>
+                    <p>Set of 5 vinyl stickers with band designs.</p>
+                    <p class="price">$5.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="wwwroot/images/band/at-his-feet-band-pic.jpg" alt="Devotional Book">
+                    <h4>Devotional Book</h4>
+                    <p>Companion book with lyrics and reflections.</p>
+                    <p class="price">$14.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="shipping-info">
+            <h3>Shipping & Returns</h3>
+            <p>Free shipping on orders over $50. Returns accepted within 30 days.</p>
+            <p>For custom orders or bulk purchases, please contact us.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 At His Feet Band. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Add to Cart Functionality (Placeholder)
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productName = button.parentElement.querySelector('h4').textContent;
+                alert(`${productName} added to cart! (E-commerce integration coming soon)`);
+            });
+        });
+    </script>
+</body>
+</html>

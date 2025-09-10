@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community - At His Feet</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="wwwroot/images/band/at-his-feet-band-logo.jpg" type="image/jpg">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="wwwroot/images/band/at-his-feet-band-logo.jpg" alt="At His Feet Band Logo">
+                <h1>At His Feet</h1>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="merchandise.html">Merchandise</a></li>
+                <li><a href="donate.html">Donate</a></li>
+                <li><a href="media.html">Media Gallery</a></li>
+            </ul>
+            <button id="theme-toggle">Lost vs Found</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="community-hero">
+            <h2>Join Our Community</h2>
+            <p>Connect with fellow believers, share your story, and grow in faith through music and fellowship.</p>
+        </section>
+
+        <section class="blog">
+            <h3>Latest from Our Blog</h3>
+            <div class="blog-posts">
+                <article class="blog-post">
+                    <h4>The Power of Worship Music</h4>
+                    <p class="date">September 15, 2023</p>
+                    <p>Explore how worship music can transform our spiritual lives and bring us closer to God...</p>
+                    <a href="#" class="read-more">Read More</a>
+                </article>
+
+                <article class="blog-post">
+                    <h4>Behind the Scenes: Writing Our Latest Song</h4>
+                    <p class="date">August 28, 2023</p>
+                    <p>Get a glimpse into the creative process behind "Exalt the Lord" and the inspiration from Psalm 99:5...</p>
+                    <a href="#" class="read-more">Read More</a>
+                </article>
+
+                <article class="blog-post">
+                    <h4>Community Impact: Our Mission Work</h4>
+                    <p class="date">August 10, 2023</p>
+                    <p>Learn about our recent outreach programs and how your support is making a difference...</p>
+                    <a href="#" class="read-more">Read More</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h3>Community Testimonials</h3>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p>"At His Feet's music has been a constant source of inspiration in my daily walk with God."</p>
+                    <cite>- Sarah M., Long-time Fan</cite>
+                </div>
+                <div class="testimonial">
+                    <p>"Their concerts bring our church community together like nothing else."</p>
+                    <cite>- Pastor John D., First Community Church</cite>
+                </div>
+                <div class="testimonial">
+                    <p>"The lyrics speak to my soul and remind me of God's unwavering love."</p>
+                    <cite>- Michael R., Youth Leader</cite>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact">
+            <h3>Get in Touch</h3>
+            <p>Have a story to share? Want to collaborate? We'd love to hear from you!</p>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="contact-name">Name</label>
+                    <input type="text" id="contact-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact-email">Email</label>
+                    <input type="email" id="contact-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact-subject">Subject</label>
+                    <input type="text" id="contact-subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact-message">Message</label>
+                    <textarea id="contact-message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="contact-btn">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 At His Feet Band. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Contact Form Handling
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('contact-name').value;
+            const email = document.getElementById('contact-email').value;
+            const subject = document.getElementById('contact-subject').value;
+            const message = document.getElementById('contact-message').value;
+
+            alert(`Thank you, ${name}! Your message has been sent. We'll get back to you soon.`);
+            this.reset();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - At His Feet</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="wwwroot/images/band/at-his-feet-band-logo.jpg" type="image/jpg">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="wwwroot/images/band/at-his-feet-band-logo.jpg" alt="At His Feet Band Logo">
+                <h1>At His Feet</h1>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="merchandise.html">Merchandise</a></li>
+                <li><a href="donate.html">Donate</a></li>
+                <li><a href="media.html">Media Gallery</a></li>
+            </ul>
+            <button id="theme-toggle">Lost vs Found</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="events-hero">
+            <h2>Upcoming Events</h2>
+            <p>Join us for concerts, worship sessions, and community gatherings.</p>
+        </section>
+
+        <section class="event-calendar">
+            <h3>Event Calendar</h3>
+            <div class="events-list">
+                <div class="event-card">
+                    <h4>Worship Concert at First Baptist</h4>
+                    <p><strong>Date:</strong> October 15, 2023</p>
+                    <p><strong>Time:</strong> 7:00 PM</p>
+                    <p><strong>Location:</strong> First Baptist Church, Main St, City</p>
+                    <p><strong>Description:</strong> An evening of gospel and folk worship songs.</p>
+                    <button class="register-btn">Register</button>
+                </div>
+
+                <div class="event-card">
+                    <h4>Community Music Festival</h4>
+                    <p><strong>Date:</strong> November 5, 2023</p>
+                    <p><strong>Time:</strong> 2:00 PM - 8:00 PM</p>
+                    <p><strong>Location:</strong> Central Park, City</p>
+                    <p><strong>Description:</strong> Featuring multiple Christian bands across all genres.</p>
+                    <button class="register-btn">Register</button>
+                </div>
+
+                <div class="event-card">
+                    <h4>Youth Worship Night</h4>
+                    <p><strong>Date:</strong> November 20, 2023</p>
+                    <p><strong>Time:</strong> 6:00 PM</p>
+                    <p><strong>Location:</strong> Youth Center, Downtown</p>
+                    <p><strong>Description:</strong> Rock and bluegrass sets for the younger generation.</p>
+                    <button class="register-btn">Register</button>
+                </div>
+
+                <div class="event-card">
+                    <h4>Christmas Caroling & Concert</h4>
+                    <p><strong>Date:</strong> December 10, 2023</p>
+                    <p><strong>Time:</strong> 5:00 PM</p>
+                    <p><strong>Location:</strong> Town Square, City</p>
+                    <p><strong>Description:</strong> Holiday celebration with traditional and modern carols.</p>
+                    <button class="register-btn">Register</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="past-events">
+            <h3>Past Events</h3>
+            <div class="events-list">
+                <div class="event-card past">
+                    <h4>Summer Worship Series</h4>
+                    <p><strong>Date:</strong> July 22, 2023</p>
+                    <p><strong>Description:</strong> Monthly worship gatherings throughout the summer.</p>
+                    <a href="media.html">View Photos</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 At His Feet Band. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Event Registration (Placeholder)
+        const registerButtons = document.querySelectorAll('.register-btn');
+        registerButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                alert('Registration feature coming soon! Please contact us directly.');
+            });
+        });
+    </script>
+</body>
+</html>

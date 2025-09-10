@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music - At His Feet</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="wwwroot/images/band/at-his-feet-band-logo.jpg" type="image/jpg">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="wwwroot/images/band/at-his-feet-band-logo.jpg" alt="At His Feet Band Logo">
+                <h1>At His Feet</h1>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="merchandise.html">Merchandise</a></li>
+                <li><a href="donate.html">Donate</a></li>
+                <li><a href="media.html">Media Gallery</a></li>
+            </ul>
+            <button id="theme-toggle">Lost vs Found</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="music-gallery">
+            <h2>Our Music</h2>
+            <p>Explore our collection of worship songs across folk, gospel, rock, and bluegrass genres.</p>
+
+            <div class="filters">
+                <button class="filter-btn active" data-genre="all">All</button>
+                <button class="filter-btn" data-genre="folk">Folk</button>
+                <button class="filter-btn" data-genre="gospel">Gospel</button>
+                <button class="filter-btn" data-genre="rock">Rock</button>
+                <button class="filter-btn" data-genre="bluegrass">Bluegrass</button>
+            </div>
+
+            <div class="songs">
+                <div class="song-card" data-genre="gospel">
+                    <h3>Holy Is the Lord</h3>
+                    <p>Genre: Gospel</p>
+                    <audio controls>
+                        <source src="path/to/holy-is-the-lord.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <a href="#" class="download-btn">Download</a>
+                </div>
+
+                <div class="song-card" data-genre="folk">
+                    <h3>Foot of the Cross</h3>
+                    <p>Genre: Folk</p>
+                    <audio controls>
+                        <source src="path/to/foot-of-the-cross.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <a href="#" class="download-btn">Download</a>
+                </div>
+
+                <div class="song-card" data-genre="rock">
+                    <h3>Exalt the Lord</h3>
+                    <p>Genre: Rock</p>
+                    <audio controls>
+                        <source src="path/to/exalt-the-lord.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <a href="#" class="download-btn">Download</a>
+                </div>
+
+                <div class="song-card" data-genre="bluegrass">
+                    <h3>Worship at His Footstool</h3>
+                    <p>Genre: Bluegrass</p>
+                    <audio controls>
+                        <source src="path/to/worship-at-his-footstool.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <a href="#" class="download-btn">Download</a>
+                </div>
+
+                <!-- Add more songs -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 At His Feet Band. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Music Filter Functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const songCards = document.querySelectorAll('.song-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const genre = button.getAttribute('data-genre');
+
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                // Filter songs
+                songCards.forEach(card => {
+                    if (genre === 'all' || card.getAttribute('data-genre') === genre) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
