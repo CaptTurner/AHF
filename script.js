@@ -1,24 +1,63 @@
-// Theme Toggle Functionality
+// Theme Toggle Functionality with Persistent Theme Across Pages
 const themeToggle = document.getElementById('theme-toggle');
-const body = document.body;
+const html = document.documentElement;
 
-// Check for saved theme preference or default to light mode
-const currentTheme = localStorage.getItem('theme') || 'light';
-body.setAttribute('data-theme', currentTheme);
-updateButtonText(currentTheme);
+// Function to apply theme from localStorage
+function applySavedTheme() {
+    // Retrieve saved theme from localStorage, default to 'light' if none exists
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    console.log('Applying saved theme:', savedTheme);
 
-themeToggle.addEventListener('click', () => {
-    const currentTheme = body.getAttribute('data-theme');
+    // Apply the theme to the HTML element
+    html.setAttribute('data-theme', savedTheme);
+
+    // Update button text to match the applied theme
+    updateButtonText();
+
+    return savedTheme;
+}
+
+// Function to update button text based on current theme
+function updateButtonText() {
+    const currentTheme = html.getAttribute('data-theme');
+    const buttonText = currentTheme === 'light' ? 'Found Mode' : 'Lost Mode';
+    if (themeToggle) {
+        themeToggle.textContent = buttonText;
+    }
+}
+
+// Function to handle theme toggle
+function handleThemeToggle() {
+    // Get current theme from the HTML data attribute
+    const currentTheme = html.getAttribute('data-theme');
+
+    // Determine the new theme (opposite of current)
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
 
-    body.setAttribute('data-theme', newTheme);
+    // Apply the new theme
+    html.setAttribute('data-theme', newTheme);
+
+    // Save the new theme to localStorage for persistence across pages
     localStorage.setItem('theme', newTheme);
-    updateButtonText(newTheme);
+
+    // Update button text to reflect the change
+    updateButtonText();
+
+    console.log('Theme toggled to:', newTheme);
+}
+
+// Apply saved theme when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Apply the saved theme and update UI
+    applySavedTheme();
+
+    // Add click event listener to the theme toggle button
+    if (themeToggle) {
+        themeToggle.addEventListener('click', handleThemeToggle);
+    }
 });
 
-function updateButtonText(theme) {
-    themeToggle.textContent = theme === 'light' ? 'Lost vs Found' : 'Saint vs Sinner';
-}
+// Removed updateButtonText as button now has no text
 
 // Smooth Scrolling for Navigation Links
 document.querySelectorAll('nav ul li a[href^="#"]').forEach(anchor => {

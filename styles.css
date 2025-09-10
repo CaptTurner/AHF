@@ -15,7 +15,7 @@
     --gradient: linear-gradient(135deg, #1c0001, #b70100, #b6a39c);
 }
 
-[data-theme="dark"] {
+html[data-theme="dark"] {
     --bg-color: #1c0001;
     --text-color: #f0f0f0;
     --nav-bg: rgba(28, 0, 1, 0.9);
@@ -101,18 +101,44 @@ nav ul li a:hover {
 }
 
 #theme-toggle {
-    background: var(--button-bg);
-    color: white;
+    position: relative;
+    width: 120px;
+    height: 30px;
+    background: #ccc;
     border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
+    border-radius: 15px;
     cursor: pointer;
-    font-weight: 500;
     transition: background 0.3s;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    outline: none;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 8px;
 }
 
-#theme-toggle:hover {
-    background: var(--button-hover);
+#theme-toggle::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 26px;
+    height: 26px;
+    background: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+html[data-theme="dark"] #theme-toggle {
+    background: var(--primary-color);
+}
+
+html[data-theme="dark"] #theme-toggle::before {
+    transform: translateX(92px);
 }
 
 /* Main Content */
