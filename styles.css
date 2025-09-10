@@ -133,21 +133,21 @@ nav ul li a:hover {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-html[data-theme="dark"] #theme-toggle {
-    background: var(--primary-color);
-}
-
 html[data-theme="dark"] #theme-toggle::before {
     transform: translateX(106px);
 }
 
-/* Disable transitions on page load to prevent flash/animation */
-html:not([data-theme-loaded]) #theme-toggle::before {
-    transition: none;
+/* Disable ALL transitions on page load to prevent flash/animation */
+html:not([data-theme-loaded]) #theme-toggle,
+html:not([data-theme-loaded]) #theme-toggle::before,
+html:not([data-theme-loaded]) * {
+    transition: none !important;
+    animation: none !important;
 }
 
-html:not([data-theme-loaded]) * {
-    transition: background-color 0s, color 0s;
+/* Force toggle position for dark mode immediately */
+html[data-theme="dark"]:not([data-theme-loaded]) #theme-toggle::before {
+    transform: translateX(106px) !important;
 }
 
 /* Re-enable transitions after initialization */

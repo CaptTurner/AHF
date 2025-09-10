@@ -19,6 +19,7 @@ function getStoredTheme() {
         html.setAttribute('data-theme', 'dark');
     }
     // For light theme, we don't need to set anything as it's the default
+    // CSS will handle the toggle position automatically
 })();
 
 // Function to safely set localStorage
